@@ -1,7 +1,9 @@
 import React from 'react'
 import { ThemeProvider as NextThemesProvider } from "next-themes"
+import { Sidebar } from 'lucide-react'
+import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
+import { AppSidebar } from './_components/AppSidebar'
 
-<provider></provider>
 function provider({
     children,
     ...props
@@ -14,7 +16,11 @@ function provider({
             disableTransitionOnChange
 
             {...props}>
-            <div>{children}</div>
+            <SidebarProvider>
+                <AppSidebar/>
+                <SidebarTrigger/>
+                <div>{children}</div>
+            </SidebarProvider>
         </NextThemesProvider>
     )
 }
