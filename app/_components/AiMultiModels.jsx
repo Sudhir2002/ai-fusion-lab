@@ -49,7 +49,7 @@ function AiMultiModels() {
                             </Select>}
                         </div>
                         <div>
-                            {model.enable ? <Switch Checked={model.enable}
+                            {model.enable ? <Switch checked={model.enable}
                                 onCheckedChange={(v) => onToggeleChange(model.model, v)}
                             />
                                 : (
