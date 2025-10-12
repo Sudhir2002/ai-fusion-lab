@@ -8,7 +8,7 @@ function ChatInputBox() {
         <div className='relative min-h-screen'>
             {/*page content*/}
             <div>
-                <AiMultiModels/>
+                <AiMultiModels />
             </div>
             {/*fixed Chat Input*/}
 

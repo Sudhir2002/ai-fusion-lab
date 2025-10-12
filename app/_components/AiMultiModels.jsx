@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import AiModelList from '@/shared/AiModelList'
 import Image from 'next/image'
 import { MessageSquare } from 'lucide-react'
-import { Button} from '@/components/ui/button'
+import { Button } from '@/components/ui/button'
 import { Lock } from "lucide-react";
 import {
     Select,
@@ -60,14 +60,14 @@ function AiMultiModels() {
                                 )}
                         </div>
                     </div>
-                    {model.premium && model.enable&& < div  className='flex items-center justify-center h-full'>
-                        <Button><Lock/>Upgrade to unlock</Button>
-                </div>}
+                    {model.premium && model.enable && < div className='flex items-center justify-center h-full'>
+                        <Button><Lock />Upgrade to unlock</Button>
+                    </div>}
                 </div>
 
 
-    ))
-}
+            ))
+            }
 
         </div >
     )
