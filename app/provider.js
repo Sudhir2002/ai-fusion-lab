@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ThemeProvider as NextThemesProvider } from "next-themes"
 import { Sidebar } from 'lucide-react'
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
@@ -7,8 +7,11 @@ import { AppSidebar } from './_components/AppSiderbar'
 import { AppHeader } from './_components/AppHeader'
 import { useUser } from '@clerk/nextjs'
 import { getDoc, setDoc } from 'firebase/firestore';
+import { AiSelectedModelContext } from '@/context/AiSelectedModelContext';
+import { DefaultModel } from '@/shared/AiModelsShared';
 function Provider({ children, ...props }) {
     const { user } = useUser();
+    const [aiSelectedModels,setAiSelectedModels]=useState(DefaultModel)
     useEffect(() => {
         if (user) {
             CreateNewUser();
@@ -48,6 +51,7 @@ function Provider({ children, ...props }) {
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange>
+                <AiSelectedModelContext.Provider value={{aiSelectedModels,setAiSelectedModels}}>
             <SidebarProvider>
                 <AppSidebar />
 
@@ -55,6 +59,7 @@ function Provider({ children, ...props }) {
                 <div className='w-full ml-8'>
                     <AppHeader />{children}</div>
             </SidebarProvider>
+            </AiSelectedModelContext.Provider>
         </NextThemesProvider>
     )
 
